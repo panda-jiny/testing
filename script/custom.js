@@ -38,7 +38,7 @@ t1.to(".section_first article", {
   },
 );
 
-// section_third
+// third section
 let cards = gsap.utils.toArray(".section_third li");
 
 let t2 = gsap.timeline({
@@ -152,14 +152,15 @@ function sectionTitle(section) {
     });
 }
 // second section
-gsap.from(".section_second .con2", {
-  scrollTrigger: ".section_second .con2",
-  x: "-20%",
-  opacity: 0,
+gsap.to(".section_second .con2", {
+  scrollTrigger: {
+    trigger: ".section_second .con2",
+    toggleActions: "play none none reset",
+  },
+  x: 0,
+  opacity: 1,
   duration: 1.4,
 });
-
-// third section
 
 // fourth section
 const pandaMap = [
@@ -223,8 +224,8 @@ t3.to(".section_fourth .dot", {
 })
   .to(".section_fourth .dot_anime", {
     filter: "blur(6px)",
-    duration: 1,
-    delay: 2.6,
+    duration: 2.6,
+    delay: 3.2,
   })
   .to(".section_fourth .panda_logo", {
     opacity: 1,
@@ -234,6 +235,25 @@ document.querySelectorAll(".dot").forEach((el) => {
   el.style.transitionDelay = Math.random() * 1 + "s";
 });
 
+// submit button
+$(".submit-btn").on("mouseenter", function () {
+  $(this)
+    .stop()
+    .animate({ width: "80px" }, function () {
+      $(this)
+        .find("i")
+        .stop()
+        .animate({ left: "150%" }, function () {
+          $(".submit-btn span").stop().animate({ top: "50%" });
+          $(".submit-btn i").css({ left: "-150%" });
+        });
+    });
+});
+$(".submit-btn").on("mouseleave", function () {
+  $(".submit-btn span").stop().animate({ top: "150%" });
+  $(".submit-btn i").stop().animate({ left: "50%" });
+  $(".submit-btn").stop().animate({ width: "40px" });
+});
 // EmailJS 초기화
 emailjs.init({
   publicKey: "I27rGQflRaS_Ma99t",
