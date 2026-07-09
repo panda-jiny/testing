@@ -39,7 +39,7 @@ body {
 
 /* visual */
 #visual {
-  height: 100vh;
+  height: calc(100vh - 80px);
 }
 #visual .title {
   font-size: 18cqw;
@@ -101,6 +101,7 @@ body {
   position: sticky;
   top: 20px;
   z-index: 100;
+  height: 80px;
 }
 #header .header_inner {
   text-align: center;
@@ -111,6 +112,14 @@ body {
   justify-content: center;
   gap: 1.6vw;
   font-size: 2.6vw;
+  opacity: 0.2;
+  filter: blur(20px);
+  transition: 500ms ease;
+}
+#header .header_inner nav ul.active,
+#header .header_inner nav ul:hover {
+  opacity: 1;
+  filter: blur(0);
 }
 #header .header_inner nav ul .checker {
   /* glass style */
@@ -183,19 +192,19 @@ article {
   transform-style: preserve-3d;
 }
 .article_first .front {
-  background: url(../img/Frame-14_01.gif) center/100% no-repeat;
+  background: url(../img/about_01.png) center/100% no-repeat;
   background-color: #6d7688;
 }
 .article_second .front {
-  background: url(../img/Frame-14_02.gif) center/100% no-repeat;
+  background: url(../img/about_02.png) center/100% no-repeat;
   background-color: #516487;
 }
 .article_third .front {
-  background: url(../img/Frame-14_03.gif) center/100% no-repeat;
+  background: url(../img/about_03.png) center/100% no-repeat;
   background-color: #2a4678;
 }
 .article_fourth .front {
-  background: url(../img/Frame-14_04.gif) center/100% no-repeat;
+  background: url(../img/about_04.png) center/100% no-repeat;
   background-color: #0d3479;
 }
 article > div {
@@ -221,6 +230,31 @@ article > div {
 }
 .on {
   transform: rotateY(180deg);
+}
+
+@media (max-width: 810px) {
+  .section_first {
+    flex-direction: column;
+  }
+  article {
+    width: 100%;
+  }
+  .article_first .front {
+    background: url(../img/about_mo_01.png) center/100% no-repeat;
+    background-color: #6d7688;
+  }
+  .article_second .front {
+    background: url(../img/about_mo_02.png) center/100% no-repeat;
+    background-color: #516487;
+  }
+  .article_third .front {
+    background: url(../img/about_mo_03.png) center/100% no-repeat;
+    background-color: #2a4678;
+  }
+  .article_fourth .front {
+    background: url(../img/about_mo_04.png) center/100% no-repeat;
+    background-color: #0d3479;
+  }
 }
 /* second section */
 .section_second {

@@ -17,6 +17,18 @@ ScrollTrigger.create({
   },
 });
 
+ScrollTrigger.create({
+  trigger: "#visual",
+  start: "-1% top",
+  end: "bottom top",
+
+  onEnter: () => (visualMode = true),
+  onEnterBack: () => (visualMode = true),
+
+  onLeave: () => (visualMode = false),
+  onLeaveBack: () => (visualMode = false),
+});
+
 // first section
 let t1 = gsap.timeline({
   scrollTrigger: {
@@ -125,6 +137,20 @@ $("header li").on("click", function (e) {
     },
     600,
   );
+});
+
+let scrollTimer;
+
+$(window).on("scroll", function () {
+  $("#header nav ul").addClass("active");
+
+  clearTimeout(scrollTimer);
+
+  scrollTimer = setTimeout(() => {
+    if (!visualMode && !$("#header nav ul").is(":hover")) {
+      $("#header nav ul").removeClass("active");
+    }
+  }, 300);
 });
 
 // section title animation
