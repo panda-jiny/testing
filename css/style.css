@@ -240,19 +240,19 @@ article > div {
     width: 100%;
   }
   .article_first .front {
-    background: url(../img/about_mo_01.png) center/100% no-repeat;
+    background: url(../img/Frame-40_01.png) center/100% no-repeat;
     background-color: #6d7688;
   }
   .article_second .front {
-    background: url(../img/about_mo_02.png) center/100% no-repeat;
+    background: url(../img/Frame-40_02.png) center/100% no-repeat;
     background-color: #516487;
   }
   .article_third .front {
-    background: url(../img/about_mo_03.png) center/100% no-repeat;
+    background: url(../img/Frame-40_03.png) center/100% no-repeat;
     background-color: #2a4678;
   }
   .article_fourth .front {
-    background: url(../img/about_mo_04.png) center/100% no-repeat;
+    background: url(../img/Frame-40_04.png) center/100% no-repeat;
     background-color: #0d3479;
   }
 }
