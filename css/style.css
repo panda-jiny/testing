@@ -185,26 +185,26 @@ article {
   width: 25%;
   height: 100%;
 
-  /* background: url(../img/Frame\ 14.png) center/cover no-repeat; */
-  /* background-attachment: fixed; */
+  /* background: url(../img/Frame\ 14.png) center/cover no-repeat;
+  background-attachment: fixed; */
   position: relative;
   transition: 400ms;
   transform-style: preserve-3d;
 }
 .article_first .front {
-  background: url(../img/about_01.png) center/100% no-repeat;
+  background-position: 0% 0;
   background-color: #6d7688;
 }
 .article_second .front {
-  background: url(../img/about_02.png) center/100% no-repeat;
+  background-position: 33.33% 0;
   background-color: #516487;
 }
 .article_third .front {
-  background: url(../img/about_03.png) center/100% no-repeat;
+  background-position: 66.66% 0;
   background-color: #2a4678;
 }
 .article_fourth .front {
-  background: url(../img/about_04.png) center/100% no-repeat;
+  background-position: 100% 0;
   background-color: #0d3479;
 }
 article > div {
@@ -217,12 +217,12 @@ article > div {
   justify-content: center;
   align-items: center;
 }
-.front {
+article .front {
   z-index: 10;
   backface-visibility: hidden;
-}
-.firstf {
-  /* background-color: #6d7688; */
+  background-image: url("../img/about.png");
+  background-repeat: no-repeat;
+  background-size: 400% 100%;
 }
 .back {
   /* transform: rotateY(180deg); */
@@ -239,21 +239,21 @@ article > div {
   article {
     width: 100%;
   }
+  article .front {
+    background-image: url("../img/about_mo.png");
+    background-size: 100% 400%;
+  }
   .article_first .front {
-    background: url(../img/Frame-40_01.png) center/100% no-repeat;
-    background-color: #6d7688;
+    background-position: 50% 0%;
   }
   .article_second .front {
-    background: url(../img/Frame-40_02.png) center/100% no-repeat;
-    background-color: #516487;
+    background-position: 50% 33.33%;
   }
   .article_third .front {
-    background: url(../img/Frame-40_03.png) center/100% no-repeat;
-    background-color: #2a4678;
+    background-position: 50% 66.66%;
   }
   .article_fourth .front {
-    background: url(../img/Frame-40_04.png) center/100% no-repeat;
-    background-color: #0d3479;
+    background-position: 50% 100%;
   }
 }
 /* second section */
@@ -287,6 +287,8 @@ article > div {
   width: 450px;
   margin-left: 10%;
   padding-top: 30px;
+  opacity: 0;
+  transform: translateX(20%);
 }
 .section_second .con1 h3 {
   font-size: 30px;
@@ -409,7 +411,7 @@ article > div {
   height: 100%;
   display: flex;
   align-items: center;
-  background-image: url(../img/testing.jpg);
+  /* background-image: url(../img/testing.jpg); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

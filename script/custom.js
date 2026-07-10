@@ -73,7 +73,7 @@ cards.forEach((card) => {
     {
       flex: "1 1 70%",
     },
-    "<",
+    // "<",
   );
 });
 
@@ -100,7 +100,9 @@ sections.forEach((section, i) => {
       });
       gsap.to(`${section} .text_cover`, {
         width: 0,
-        duration: 0.2,
+        delay: 0.6,
+        duration: 0.6,
+        ease: "power2.in",
       });
     },
     onEnterBack: () => {
@@ -150,7 +152,7 @@ $(window).on("scroll", function () {
     if (!visualMode && !$("#header nav ul").is(":hover")) {
       $("#header nav ul").removeClass("active");
     }
-  }, 300);
+  }, 1200);
 });
 
 // section title animation
@@ -178,6 +180,15 @@ function sectionTitle(section) {
     });
 }
 // second section
+gsap.to(".section_second .con1", {
+  scrollTrigger: {
+    trigger: ".section_second .con1",
+    toggleActions: "play none none reset",
+  },
+  x: 0,
+  opacity: 1,
+  duration: 1.4,
+});
 gsap.to(".section_second .con2", {
   scrollTrigger: {
     trigger: ".section_second .con2",
@@ -257,10 +268,28 @@ t3.to(".section_fourth .dot", {
     opacity: 1,
   });
 
+gsap.from(".section_fourth .left", {
+  scrollTrigger: {
+    trigger: ".section_fourth",
+    toggleActions: "play none none reset",
+  },
+  y: "-20%",
+  opacity: 0,
+  duration: 1.4,
+});
 document.querySelectorAll(".dot").forEach((el) => {
   el.style.transitionDelay = Math.random() * 1 + "s";
 });
 
+gsap.from(".section_fourth .right", {
+  scrollTrigger: {
+    trigger: ".section_fourth",
+    toggleActions: "play none none reset",
+  },
+  y: "20%",
+  opacity: 0,
+  duration: 1.4,
+});
 // submit button
 $(".submit-btn").on("mouseenter", function () {
   $(this)
