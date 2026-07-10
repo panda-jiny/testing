@@ -53,6 +53,47 @@ t1.to(".section_first article", {
 // third section
 let cards = gsap.utils.toArray(".section_third li");
 
+let currentIndex = -1;
+
+function activeVideo(index) {
+  // 이미 재생 중인 카드면 아무것도 안 함
+  if (currentIndex === index) return;
+
+  currentIndex = index;
+
+  $(".section_third li video").each(function () {
+    this.pause();
+    this.currentTime = 0;
+
+    gsap.to(this, {
+      opacity: 0,
+      duration: 0.3,
+    });
+  });
+
+  const vid = cards[index].querySelector("video");
+
+  vid.play();
+
+  gsap.to(vid, {
+    opacity: 1,
+  });
+}
+
+function stopAllVideos() {
+  $(".section_third video").each(function () {
+    this.pause();
+    this.currentTime = 0;
+
+    gsap.to(this, {
+      opacity: 0,
+      duration: 0.2,
+    });
+  });
+
+  currentIndex = -1;
+}
+
 let t2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".section_third",
@@ -63,7 +104,7 @@ let t2 = gsap.timeline({
   },
 });
 
-cards.forEach((card) => {
+cards.forEach((card, index) => {
   t2.to(cards, {
     flex: "1 1 10%",
   });
@@ -72,9 +113,22 @@ cards.forEach((card) => {
     card,
     {
       flex: "1 1 70%",
+      onUpdate: () => {
+        activeVideo(index);
+      },
     },
     // "<",
   );
+});
+
+ScrollTrigger.create({
+  trigger: ".section_third",
+  start: "top top",
+  end: "bottom top",
+
+  onLeave: stopAllVideos,
+
+  onLeaveBack: stopAllVideos,
 });
 
 // header
@@ -273,7 +327,7 @@ gsap.from(".section_fourth .left", {
     trigger: ".section_fourth",
     toggleActions: "play none none reset",
   },
-  y: "-20%",
+  x: "-20%",
   opacity: 0,
   duration: 1.4,
 });
@@ -286,7 +340,7 @@ gsap.from(".section_fourth .right", {
     trigger: ".section_fourth",
     toggleActions: "play none none reset",
   },
-  y: "20%",
+  x: "20%",
   opacity: 0,
   duration: 1.4,
 });

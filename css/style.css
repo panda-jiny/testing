@@ -415,6 +415,16 @@ article .front {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  position: relative;
+}
+.section_third a video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 .section_third .con3 ul li a h3 {
   width: 100%;
