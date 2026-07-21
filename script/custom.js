@@ -253,6 +253,28 @@ gsap.to(".section_second .con2", {
   duration: 1.4,
 });
 
+$(".section_second .con2 li a").on("click", function (e) {
+  let idx = $(this).parent().index();
+  e.preventDefault();
+  $(".modal")
+    .addClass("checked")
+    .stop()
+    .animate({ opacity: 1 }, function () {
+      $(this).find(".popup").eq(idx).addClass("checked");
+    });
+  $("html").addClass("modal-open");
+});
+
+$(".section_second .modal .close_btn").on("click", function () {
+  $(".section_second .popup").removeClass("checked");
+  $(".modal")
+    .stop()
+    .animate({ opacity: 0.2 }, function () {
+      $(this).removeClass("checked");
+    });
+  $("html").removeClass("modal-open");
+});
+
 // fourth section
 const pandaMap = [
   "00000000000000000000000000000000",
